@@ -1,0 +1,54 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.social-links{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100px;
+    width: 200px;
+}
+a{
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    color:aliceblue;
+    background-color: darkslategrey;
+    border-radius: 50%;
+    transition: color 0.5s ease-in-out;
+}
+
+@property --fill {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 0%;
+}
+
+a:hover{
+    color:royalblue;
+    --fill: 100%;
+    background-color: aliceblue;
+}
+
+a::after{
+    position: absolute;
+    z-index: -1;
+    content: '';
+    inset: -3px;
+    border-radius: inherit;
+    background: conic-gradient(royalblue var(--fill), transparent var(--fill));
+    transition: --fill 0.6s ease-in-out;
+}
